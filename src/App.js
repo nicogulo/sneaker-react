@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="Parentbox">
       <FotoProduk/>
-      <ProdukInfo name="Pingky Dwn" category="FUNGKY"/>   
+      <ProdukInfo isDicount="comming" name="Pingky Dwn" category="FUNGKY"/>   
     </div>
   );
 }
@@ -20,9 +20,27 @@ function FotoProduk(){
   );
 }
 
+function CheckDiscount(props){
+  const { isDicount} = props;
+  if(isDicount == "yes"){
+    return(
+      <p>Discount 50%</p>
+    );
+  }else if(isDicount == "comming"){
+    return(
+      <p>Akan ada discount</p>
+    );
+  }
+   else{
+    return(
+      <p>Belum Ada Discount</p>
+    );
+  }
+}
+
 
 function ProdukInfo(props){
-  const {category, name} = props;
+  const {category, name, isDicount} = props;
 
   return (
     <div>
@@ -30,6 +48,7 @@ function ProdukInfo(props){
         <p className="Cate">{category}</p>
         <h1 className="Tittle">{name}</h1>
         <p className="Price">IDR 2.332.999</p>
+        <CheckDiscount isDicount={isDicount}/>
         <p className="Info">lasasadadasadafsfsafaksjfbabfuibusbfebfuibaiuuf</p>
         <a onClick={(e) => TambahCart(name, e)} href="#"> Add to Cart</a>
      </div>
