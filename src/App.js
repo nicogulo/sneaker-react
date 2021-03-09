@@ -41,7 +41,10 @@ function CheckDiscount(props){
 
 function ProdukInfo(props){
   const {category, name, isDicount} = props;
-
+  const benefit = ["Tidak kusut terkena air","Berkualitas"];
+  const listBenefit = benefit.map((itemBenefit) =>
+  <li>{itemBenefit}</li>
+  );
   return (
     <div>
      <div className="Deskripsi">
@@ -50,6 +53,11 @@ function ProdukInfo(props){
         <p className="Price">IDR 2.332.999</p>
         <CheckDiscount isDicount={isDicount}/>
         <p className="Info">lasasadadasadafsfsafaksjfbabfuibusbfebfuibaiuuf</p>
+        <ul>
+          <li>
+            {listBenefit}
+          </li>
+        </ul>
         <a onClick={(e) => TambahCart(name, e)} href="#"> Add to Cart</a>
      </div>
     </div>
